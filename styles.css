@@ -7,8 +7,17 @@ body {
   background-color: black; /* Change to black */
 }
 
-.center {
-  text-align: center;
+.front {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    transform: rotateY(0deg);
+    transition: transform 0.5s ease;
+    font-size: 20px
 }
 
 .container {
@@ -18,11 +27,11 @@ body {
 
 .envelope {
   position: absolute;
-  top: 50%;
+  top: calc(10% + 150px); /* Move the envelope down by 10 pixels */
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 120px; /* Reduced envelope size for better visibility on a phone */
-  height: 72px; /* Reduced envelope size for better visibility on a phone */
+  width: 300px; /* Reduced envelope size for better visibility on a phone */
+  height: 170px; /* Reduced envelope size for better visibility on a phone */
   background-color: #ff5858;
   border-radius: 6px;
   cursor: pointer;
@@ -34,7 +43,7 @@ body {
 }
 
 .envelope:hover {
-  top: 50%;
+  top: 10%;
   transform: translate(-50%, -50%) scale(1.1);
 }
 
@@ -52,10 +61,10 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 0;
-  height: 24px; /* Reduced flap size for better visibility on a phone */
-  border-top: 24px solid white; /* Reduced flap size for better visibility on a phone */
-  border-left: 60px solid transparent; /* Reduced flap size for better visibility on a phone */
-  border-right: 60px solid transparent; /* Reduced flap size for better visibility on a phone */
+  height: 50px; /* Reduced flap size for better visibility on a phone */
+  border-top: 50px solid white; /* Reduced flap size for better visibility on a phone */
+  border-left: 150px solid transparent; /* Reduced flap size for better visibility on a phone */
+  border-right: 150px solid transparent; /* Reduced flap size for better visibility on a phone */
   z-index: 1;
   transition: top 0.8s ease-in-out; /* Adjusted transition duration */
 }
@@ -66,13 +75,17 @@ body {
   left: 50%;
   transform: translate(-50%, -50%) scaleY(0) translateY(-40px); /* Adjusted translateY to move the letter up */
   transform-origin: bottom; /* Set the transform origin to the bottom */
-  width: 84px; /* Reduced letter size for better visibility on a phone */
-  height: 54px; /* Reduced letter size for better visibility on a phone */
+  width: 300px; /* Reduced letter size for better visibility on a phone */
+  height: 400px; /* Reduced letter size for better visibility on a phone */
   background-color: white;
-  border-radius: 3px;
+  border-radius: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1; /* Adjusted z-index to ensure it's below the envelope */
   transition: transform 0.8s ease-in-out; /* Adjusted transition duration */
+  
+  font-size: 10px;
+  padding: 5px;
+  font-style: Comic sans;
 }
 
 .envelope:hover {
@@ -89,6 +102,7 @@ body {
 }
 
 .container.clicked .letter {
-  transform: translate(-50%, 0) scaleY(5) translateY(0); /* Expand the letter downward with no additional translateY */
+  transform: translate(-50%, -50%) scaleY(1) translateY(0); /* Expand the letter downward with no additional translateY */
   z-index: 3; /* Set z-index to make sure the letter appears above the flap */
 }
+

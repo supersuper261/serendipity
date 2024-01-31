@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Love Letter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  </head>
+  <body>
+    <script>
+      var open = false;
+      var envelopeX = 50;
+      var envelopeY = 50;
+      var envelopeWidth = 200;
+      var envelopeHeight = 150;
+      var letterX = 60;
+      var letterY = 60;
+      var letterWidth = 180;
+      var letterHeight = 130;
+
+      function setup() {
+        createCanvas(400, 400);
+      }
+
+      function draw() {
+        background(255);
+
+        // Envelope
+        noStroke();
+        fill(255, 223, 202);
+        rect(envelopeX, envelopeY, envelopeWidth, envelopeHeight);
+
+        // Letter
+        fill(255);
+        rect(letterX, letterY, letterWidth, letterHeight);
+
+        // Message on the envelope
+        fill(0);
+        textSize(16);
+        textAlign(CENTER, CENTER);
+        text("Love Letter", envelopeX + envelopeWidth / 2, envelopeY + 40);
+
+        // Open/Close the letter
+        if (open) {
+          letterY -= 5;
+          if (letterY < 60) {
+            open = false;
+          }
+        } else {
+          letterY += 5;
+          if (letterY > 60) {
+            open = true;
+          }
+        }
+      }
+
+      function mouseClicked() {
+        if (
+          mouseX > envelopeX &&
+          mouseX < envelopeX + envelopeWidth &&
+          mouseY > envelopeY &&
+          mouseY < envelopeY + envelopeHeight
+        ) {
+          open = true;
+        }
+      }
+    </script>
+  </body>
+</html>

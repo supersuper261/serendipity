@@ -95,6 +95,8 @@ body {
 .container.clicked .envelope {
   top: calc(50% + 60px); /* Move the envelope downward */
   opacity: 0; /* Set opacity to 0 after the envelope goes down */
+  pointer-events: none; /* Disable pointer events on the envelope when it's clicked */
+
 }
 
 .container.clicked .flap {
